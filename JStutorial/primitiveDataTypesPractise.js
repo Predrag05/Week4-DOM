@@ -49,3 +49,8 @@ console.log(typeof(someEmptyString))
 if(someEmptyString == false){
     console.log("da")                //  TOP :D
 }
+
+let bigintNumber = 326546345874565n
+console.log(bigintNumber)
+
+console.log(typeof(bigintNumber))
