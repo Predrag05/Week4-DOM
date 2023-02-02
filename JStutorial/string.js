@@ -101,16 +101,32 @@ console.log(methodTrim)
 ////////////////////////////////////////////////////////
 let stringer = "BiG LeTeRs i funkcija toUpperCase()"
 let STRINGER = stringer.toUpperCase()
-/////////////////////////////////////////////////////
-console.log(STRINGER)
 
+console.log(STRINGER)
+///////////////////////////////////////////////////
 let littleStringer = stringer.toLocaleLowerCase()
 
 console.log(littleStringer)
-
+///////////////////////////////////////////////
 let easyConcat = "Bog"
 let newString = easyConcat.concat(" ","je", " pravo dobro odlucio kada me je stvorio","!!!")
 
 console.log(newString)
+//////////////////////////////////////
+let num1 = (23.63528763).toFixed(1)
+let num2 = (23.63528763).toFixed(2)
+let num3 = (23.63528763).toFixed(3)
+let num4 = (23.63528763).toFixed(4)
+let num5 = (23.63528763).toFixed(5)
+
+console.log(num1, num2, num3, num4, num5)
+
+let no1 = (21).toString()
+let no2 = (22).toString()
+let no3 = (23).toString()
+let no4 = (24).toString()
+let no5 = (25).toString()
+
+console.log(no1, no2, no3, no4, no5)
 
 console.log("Браво Предраже за ово вежбање!!!")
