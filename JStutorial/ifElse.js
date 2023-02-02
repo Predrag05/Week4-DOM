@@ -89,7 +89,7 @@ let jovanaObj = {
     bracnoStanje: 1,
     deca: 2
 }
-
+////////// ТЕРНАРНИ ОПЕРАТОР
 jovanaObj.ime == "Jovana" && jovanaObj.prezime == "Simonovic" && jovanaObj.godiste == 1999 && jovanaObj.bracnoStanje == 1 && jovanaObj.deca >= 2 ? console.log("То је моја драга Јована.") : console.log("Треба ми само моја Јована.")
 
 console.log(`Браво ${contact.name} ${contact.surname} за ово вежбање`)
