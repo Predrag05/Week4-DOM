@@ -111,7 +111,7 @@ let greetingsAddFirstProperty = {
   
   console.log(greetingsAddFirstProperty);
 
-  ///////////////////////////////////////////////////////////////
+
 
 let greetingsMore = {
     0: 'Hi',
@@ -128,3 +128,37 @@ let greetingsMore = {
 greetingsMore.prepend('Good day', 'Commander')
 
 console.log(greetingsMore)
+
+/////////////////////////////////////////////////////////////
+
+let pozdraviOdPedje = {
+    0: 'Zdravo',
+    1: 'Da',
+    2: 'li',
+    3: 'si',
+    4: 'za',
+    5: 'ucenje',
+    length: 6,
+    append (pozdrav) {
+        [].push.call(this, pozdrav)
+        return this.length
+    }
+}
+pozdraviOdPedje.append('DA DA DA')
+console.log(pozdraviOdPedje)
+
+let zivotinje = {
+    0: 'jelen',
+    1: 'vuk',
+    2: 'lisica',
+    3: 'medved',
+    4: 'sova',
+    length: 5,
+    append (...zivotinja) {
+        [].push.call(this, ...zivotinja)
+        return this.length
+    }
+}
+
+zivotinje.append('zec', 'veverica')
+console.log(zivotinje)
