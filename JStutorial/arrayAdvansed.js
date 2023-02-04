@@ -59,8 +59,9 @@ console.log(days); // мало је конфузно јер низ изглед�
 days.unshift(...weekends)
 console.log(days);  // разлика између овог spread operator и for of-a је у томе што ће spread буквално прекопирати и редослед низа какав је био до ће for of као петља једног по једног убацивати са почетка што у .push() не мења ништа али у .unshift() замени им места па ће први у низу постати последњи.
 
+/////////////////////////////////////////////////////////////
 
-let greetings = {
+let greetingsFirst = {
     0: 'Hi',
     1: 'Hello',
     2: 'Howdy',
@@ -70,7 +71,60 @@ let greetings = {
     }
 };
 
-const greeting = greetings.removeFirst();
+const greetingFirst = greetingsFirst.removeFirst();
 
-console.log(greeting);
-console.log(greetings);
+console.log(greetingFirst);
+console.log(greetingsFirst);
+
+////////////////////////////////////////////////////////////
+
+let greetingsLast = {
+    0: 'Hi',
+    1: 'Hello',
+    2: 'Howdy',
+    length: 3,
+    removeLast() {
+        return [].pop.call(this);
+    }
+};
+
+const greetingLast = greetingsLast.removeLast();
+
+
+console.log(greetingLast);
+console.log(greetingsLast);
+
+///////////////////////////////////////////////////////////
+
+let greetingsAddFirstProperty = {
+    0: 'Hi',
+    1: 'Hello',
+    2: 'Howdy',
+    length: 3,
+    prepend(message) {
+      [].unshift.call(this, message);
+      return this.length;
+    },
+  };
+  
+  greetingsAddFirstProperty.prepend('Good day');
+  
+  console.log(greetingsAddFirstProperty);
+
+  ///////////////////////////////////////////////////////////////
+
+let greetingsMore = {
+    0: 'Hi',
+    1: 'How',
+    2: 'Are',
+    3: 'You',
+    length: 4,
+    prepend (...properti) {
+        [].unshift.call(this, ...properti);
+        return this.length
+    }
+  }
+
+greetingsMore.prepend('Good day', 'Commander')
+
+console.log(greetingsMore)
