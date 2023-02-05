@@ -42,11 +42,11 @@ friends.push("kjgsdjkfsjd"); // овај је избрисан као после
 friends.unshift("Gospod Isus Hristos"); // unshift додаје на прво место
 
 
-console.log(friends);
+// console.log(friends);
 
 friends.pop(); // брише последњег
 
-console.log(friends);
+// console.log(friends);
 
 friends.push("Predrag");
 let indexPredrag = friends.indexOf("Predrag");
@@ -90,15 +90,71 @@ friends.push("Ana");
 friends.push("jklsdfaskjfhasdkjl");
 
 
-console.log(friends.length)
-console.log(friends)
-console.log(Array.isArray(friends))
+// console.log(friends)
+console.log(Array.isArray(friends));
 
-let friendsA= "Није низ :)";
+let friendsA = "Није низ :)";
 
 if(Array.isArray(friends) === true){
-    console.log("Јесте низ, браво браво Предраже")
+    console.log("Јесте низ, браво браво Предраже");
 }
 else{
-    console.log("пронађи грешку")
+    console.log("пронађи грешку");
 };
+
+let prvih30Prijatelja = friends.splice(0, 30);
+
+let drugih30Prijatelja = friends.splice(0, 30);
+
+
+friends.unshift(...prvih30Prijatelja, ...drugih30Prijatelja)
+console.log(prvih30Prijatelja)
+console.log(drugih30Prijatelja)
+
+console.log(friends.length)
+console.log(friends)
+
+let prvi = friends.splice(0, 10);
+let drugi = friends.splice(0, 10);
+let treci = friends.splice(0, 10);
+let cetvrti = friends.splice(0, 10);
+let peti = friends.splice(0, 10);
+let sesti = friends.splice(0, 10);
+let sedmi = friends.splice(0, 10);
+let osmi = friends.splice(0, 10);
+let deveti = friends.splice(0, 10);
+
+console.log(prvi)
+console.log(drugi)
+console.log(treci)
+console.log(cetvrti)
+console.log(peti)
+console.log(sesti)
+console.log(sedmi)
+console.log(osmi)
+console.log(deveti)
+
+console.log(friends) // сада је ово празан низ
+
+/////////////////////////////////////////////////////////
+// овај код испод прави - array-like објекат, па све што се упише као параметар функције он слаже у низ, ми смо направили ову функцију
+
+function toArray() {
+    return Array.prototype.slice.call(arguments);
+}
+
+let buildArray = toArray('A', 'B', 'C')
+
+console.log(buildArray)
+
+
+/*
+
+let p = document.querySelectorAll('p');
+let list = Array.prototype.slice.call(p);
+
+// овај код изнад и код испод дају исти резултат - дохватају цео array-like објекат из HTML-а, и праве од њега низ.
+
+let list = [].slice.call(document.querySelectorAll('p'));
+
+*/
