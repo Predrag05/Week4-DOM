@@ -30,11 +30,12 @@ console.log(porodica.indexOf({
 
 
 function find(needle, haystack) {
-    let result = [];
+    let results = [];
     let idx = haystack.indexOf(needle);
     while (idx != -1) {
         result.push(idx);
         idx = haystack.indexOf(needle, idx + 1);
     }
+    return results;
 }
 
