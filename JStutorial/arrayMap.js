@@ -20,7 +20,10 @@ console.log(podrucjaMapa);
 
 let numbers = [16, 25, 36];
 let results = numbers.map(Math.sqrt);
+
 console.log(results);
+console.log(numbers);
+
 
 
 console.log("БРАВО ПРЕДРАЖЕ ЗА ОВО ВЕЖБАЊЕ!!!")
