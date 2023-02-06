@@ -7,14 +7,14 @@ let drugiNizBrojeva = [51,48,65,21,5,87,5,18,61,1,9,6,6,48,15,48,4,5];
 let broj48 = drugiNizBrojeva.indexOf(48,14);
 console.log(broj48);
 
-let rezultati = [10, 20, 30, 40, 20];
+let rezultati = [10, 20, 30, 10, 40, 20];
 
 console.log(rezultati.indexOf(10)); // 0
 console.log(rezultati.indexOf(30)); // 2
 console.log(rezultati.indexOf(50)); // -1
 console.log(rezultati.indexOf(20)); // 1
 
-console.log(rezultati.indexOf(20,-1)); // 4 (fromIndex = 6+ (-1) = 5)
+console.log(rezultati.indexOf(20,-1)); // 5 (fromIndex = 6+ (-1) = 5)
 console.log(rezultati.indexOf(20,-5)); // 1 (fromIndex = 6+ (-5) = 1)
 
 let porodica = [
@@ -26,4 +26,15 @@ let porodica = [
 console.log(porodica.indexOf({
     name: 'Predrag Simonovic',
     age: 36
-}))
+})) // Ово не ради зато што једноставно су различити објекти
+
+
+function find(needle, haystack) {
+    let result = [];
+    let idx = haystack.indexOf(needle);
+    while (idx != -1) {
+        result.push(idx);
+        idx = haystack.indexOf(needle, idx + 1);
+    }
+}
+
