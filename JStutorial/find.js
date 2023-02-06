@@ -18,3 +18,21 @@ let korisnici = [
 ];
 
 console.log(korisnici.find(e => e.kredit > 100))
+
+
+
+
+/*
+function find(zadatBroj, niz) {
+    let nizIndexa = [];
+    let brojinx = niz.indexOf(zadatBroj);
+    while (brojinx != -1) {
+        nizIndexa.push(brojinx);
+        brojinx = niz.indexOf(zadatBroj, brojinx + 1);
+    }
+    return nizIndexa;
+}
+console.log(find(10,rezultati2))
+
+console.log(rezultati2.lastIndexOf(10))
+*/
