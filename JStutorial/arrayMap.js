@@ -13,9 +13,14 @@ let podrucjaMap = krugovi.map(function(radius){
     return Math.floor(Math.PI * radius * radius);
 });
 
-console.log(podrucjaMap);
+console.log(podrucjaMap); // Изнад и испод је иста функција са другацијим ресенјима
 
 let podrucjaMapa = krugovi.map(radius => Math.floor(Math.PI * radius * radius));
 console.log(podrucjaMapa);
+
+let numbers = [16, 25, 36];
+let results = numbers.map(Math.sqrt);
+console.log(results);
+
 
 console.log("БРАВО ПРЕДРАЖЕ ЗА ОВО ВЕЖБАЊЕ!!!")
