@@ -29,13 +29,17 @@ console.log(porodica.indexOf({
 })) // Ово не ради зато што једноставно су различити објекти
 
 
+let rezultati2 = [10,20,40,30,10,10,70]
+
 function find(zadatBroj, niz) {
-    let results = [];
-    let ibroj = niz.indexOf(zadatBroj);
-    while (ibroj != -1) {
-        rezultati.push(ibroj);
-        ibroj= niz.indexOf(zadatBroj, ibroj + 1);
+    let nizIndexa = [];
+    let brojinx = niz.indexOf(zadatBroj);
+    while (brojinx != -1) {
+        nizIndexa.push(brojinx);
+        brojinx = niz.indexOf(zadatBroj, brojinx + 1);
     }
-    return rezultati;
+    return nizIndexa;
 }
-console.log(find(10,rezultati))
+console.log(find(10,rezultati2))
+
+console.log(rezultati2.lastIndexOf(10))
