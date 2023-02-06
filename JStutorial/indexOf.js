@@ -29,12 +29,12 @@ console.log(porodica.indexOf({
 })) // Ово не ради зато што једноставно су различити објекти
 
 
-function find(needle, niz) {
+function find(zadatBroj, niz) {
     let results = [];
-    let ibroj = niz.indexOf(needle);
+    let ibroj = niz.indexOf(zadatBroj);
     while (ibroj != -1) {
         rezultati.push(ibroj);
-        ibroj= niz.indexOf(needle, ibroj + 1);
+        ibroj= niz.indexOf(zadatBroj, ibroj + 1);
     }
     return rezultati;
 }
