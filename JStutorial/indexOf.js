@@ -29,13 +29,13 @@ console.log(porodica.indexOf({
 })) // Ово не ради зато што једноставно су различити објекти
 
 
-function find(needle, haystack) {
+function find(needle, niz) {
     let results = [];
-    let idx = haystack.indexOf(needle);
-    while (idx != -1) {
-        result.push(idx);
-        idx = haystack.indexOf(needle, idx + 1);
+    let ibroj = niz.indexOf(needle);
+    while (ibroj != -1) {
+        rezultati.push(ibroj);
+        ibroj= niz.indexOf(needle, ibroj + 1);
     }
-    return results;
+    return rezultati;
 }
-
+console.log(find(10,rezultati))
