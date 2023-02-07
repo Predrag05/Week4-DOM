@@ -24,6 +24,13 @@ let results = numbers.map(Math.sqrt);
 console.log(results);
 console.log(numbers);
 
+let brojevi = [1,5,3,4,7,4,36,7,63,2,34]
+
+let mapBrojevi = brojevi.map((biloSta) => {
+    return biloSta * 2
+})
+
+console.log(mapBrojevi);
 
 
 console.log("БРАВО ПРЕДРАЖЕ ЗА ОВО ВЕЖБАЊЕ!!!")
