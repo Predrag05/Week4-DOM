@@ -74,3 +74,15 @@ console.log(noviSlice)
 
 zivotinja.splice(2,1,'nosorog') // splice не даје нови низ већ мења исти и не може да се уради овај тип let noviSlice = napravljenNiz.slice(0,5) console.log(noviSlice) јер не ради већ само овако
 console.log(zivotinja)
+
+
+function toArray() {
+    return Array.prototype.slice.call(arguments)
+}
+nekiNiz = toArray('a','b','c')
+console.log(nekiNiz)
+
+nekiNiz.push(toArray(11,1,2))
+console.log(nekiNiz)
+
+console.log(nekiNiz[3][0])
