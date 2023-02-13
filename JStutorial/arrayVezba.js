@@ -29,3 +29,28 @@ let brojeviFilter = brojevi.filter((el) => {
 })
 console.log(brojeviFilter)
 
+console.log(brojevi.length)
+
+brojevi.push(5,3,5)
+
+console.log(brojevi.length)
+console.log(brojevi)
+
+let noviBrojevi = [32,23,14,43,23,14,25,68]
+
+for ( const element of noviBrojevi) {
+    brojevi.push(element)
+}
+console.log(brojevi)
+
+brojevi.unshift(...noviBrojevi)
+console.log(brojevi)
+
+
+brojevi.pop()
+console.log(brojevi)
+
+brojevi.shift()
+console.log(brojevi)
+
+console.log(brojevi.indexOf(5))
