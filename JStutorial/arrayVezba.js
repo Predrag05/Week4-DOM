@@ -54,3 +54,23 @@ brojevi.shift()
 console.log(brojevi)
 
 console.log(brojevi.indexOf(5))
+
+let zivina = ['pile', 'pace', 'kokoska']
+let zivotinje = ['macka', 'mis', 'pas', 'krava', 'konj']
+let zivotinja = zivotinje.concat(zivina)
+console.log(zivotinja)
+
+let str = zivotinja.join(' ')
+console.log(str)
+console.log(typeof(str))
+
+let napravljenNiz = str.split(' ')
+console.log(napravljenNiz)
+
+console.log(napravljenNiz[1])
+
+let noviSlice = napravljenNiz.slice(0,5)
+console.log(noviSlice)
+
+zivotinja.splice(2,1,'nosorog') // splice не даје нови низ већ мења исти и не може да се уради овај тип let noviSlice = napravljenNiz.slice(0,5) console.log(noviSlice) јер не ради већ само овако
+console.log(zivotinja)

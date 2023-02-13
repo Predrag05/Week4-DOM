@@ -33,6 +33,8 @@ let novinovi = nanizi.concat(noviSliceNiz)
 console.log(novinovi.length)
 
 console.log("novi concat niz je ispod")
+console.log(novinovi)
+
 
 console.log(nanizi.length)
 
