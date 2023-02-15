@@ -2,13 +2,24 @@
     padding: 0;
     margin: 0;
 }
-
+body {
+    background: linear-gradient(to right, #F9C80E, #FFD700);
+}
+h1 {
+    padding: 10px;
+    font-size: 2em;
+    font-weight: bold;
+}
 p {
+    padding: 10px;
     font-size: 23px;
+    color: #D3D3D3;
 }
 
-#povezi {
+.povezi {
+    display: inline-block;
     border: solid 1px;
     height: 50vh;
     width: 50vw;
+    background: radial-gradient(at center, #F1477D, #F77A52);
 }
