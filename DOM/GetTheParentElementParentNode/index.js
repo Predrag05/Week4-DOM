@@ -52,3 +52,5 @@ let getSiblings = function (e) {
 let siblings = getSiblings(document.querySelector('.current'));
 siblingText = siblings.map(e => e.innerHTML);
 console.log(siblingText);
+
+console.log('ПРЕДРАГЕ ХВАЛА ТИ ЗА ОВО ВЕЖБАЊЕ')
