@@ -8,11 +8,18 @@ document.body.appendChild(div);
 
 
 let div2 = document.createElement('div');
+div2.id = 'content2';
+div.className = 'note2';
 // create a new text node and add it to the div
 let text = document.createTextNode('CreateElement second example');
-div2.appendChild(text);
 
-document.body.appendChild(dvi2)
+let h2 = document.createElement('h2')
+h2.textContent = 'Add h2 element to the div';
+
+div2.appendChild(text);
+div2.appendChild(h2);
+
+document.body.appendChild(div2)
 
 
 
