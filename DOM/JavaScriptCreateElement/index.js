@@ -74,6 +74,30 @@ div4.appendChild(ol2)
 document.body.appendChild(div4)
 
 
+let div5 = document.createElement('div')
+div5.className = 'container';
+document.body.appendChild(div5);
+
+let niz2 = [2,3,4,562,5,3,52,0,10];
+niz.push(14)
+niz.unshift(23)
+niz.splice(5,0,25)
+
+let ol3 = document.createElement('ol');
+ol3.textContent = 'TRECA LISTA';
+let counter = 1;
+niz2.forEach((el) => {
+    let li = document.createElement('li')
+    li.textContent = `Ovo je tekst pod rednim brojem ${counter} iz niza a broj u samom nizu je \'${el}\'`
+    li.className = 'olLista2'
+
+    ol3.appendChild(li)
+    counter++
+})
+div5.appendChild(ol3)
+document.body.appendChild(div5)
+
+
 
 
 
