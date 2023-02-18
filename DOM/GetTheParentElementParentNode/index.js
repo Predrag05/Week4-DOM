@@ -53,4 +53,17 @@ let siblings = getSiblings(document.querySelector('.current'));
 siblingText = siblings.map(e => e.innerHTML);
 console.log(siblingText);
 
+let content = document.getElementById('menu');
+let firstChild = content.firstChild.nodeName;
+
+console.log(firstChild);
+console.log(content.firstElementChild);
+
+let lastChild = content.lastElementChild;
+console.log(lastChild);
+
+let menu = document.getElementById('menu');
+let children = menu.children;
+console.log(children);
+
 console.log('ПРЕДРАГЕ ХВАЛА ТИ ЗА ОВО ВЕЖБАЊЕ')
