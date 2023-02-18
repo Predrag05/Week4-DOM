@@ -59,7 +59,7 @@ niz.unshift(23)
 niz.splice(5,0,25)
 
 let ol2 = document.createElement('ol');
-ol2.textContent = 'DRUGA LISTA';
+ol2.textContent = 'DRUGA LISTA - obicna petlja for()';
 
 for(let i = 0; i < niz.length; i++){
     let li = document.createElement('li')
@@ -79,12 +79,13 @@ div5.className = 'container';
 document.body.appendChild(div5);
 
 let niz2 = [2,3,4,562,5,3,52,0,10];
-niz.push(14)
-niz.unshift(23)
-niz.splice(5,0,25)
+niz2.push(14)
+niz2.unshift(23)
+niz2.splice(5,0,25)
 
 let ol3 = document.createElement('ol');
-ol3.textContent = 'TRECA LISTA';
+ol3.textContent = 'TRECA LISTA PREKO .forEach()';
+
 let counter = 1;
 niz2.forEach((el) => {
     let li = document.createElement('li')
