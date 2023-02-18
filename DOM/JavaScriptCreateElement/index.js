@@ -49,6 +49,29 @@ ul.appendChild(li5);
 div3.appendChild(ul);
 document.body.appendChild(div3);
 
+let div4 = document.createElement('div')
+div4.className = 'container';
+document.body.appendChild(div4);
+
+let niz = [2,3,4,562,5,3,52,0,10];
+niz.push(14)
+niz.unshift(23)
+niz.splice(5,0,25)
+
+let ol2 = document.createElement('ol');
+ol2.textContent = 'DRUGA LISTA';
+
+for(let i = 0; i < niz.length; i++){
+    let li = document.createElement('li')
+    li.textContent = `Ovo je tekst pod rednim brojem ${i + 1} iz niza a broj u samom nizu je \'${niz[i]}\'`
+    li.className = 'olLista2'
+
+    ol2.appendChild(li)
+}
+
+div4.appendChild(ol2)
+
+document.body.appendChild(div4)
 
 
 
