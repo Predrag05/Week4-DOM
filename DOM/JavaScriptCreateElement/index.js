@@ -21,6 +21,36 @@ div2.appendChild(h2);
 
 document.body.appendChild(div2)
 
+let div3 = document.createElement('div');
+
+let ul = document.createElement('ul');
+ul.textContent = 'LISTA PRAVLJENA RUCNO PREKO createElement()';
+
+let li1 = document.createElement('li');
+li1.textContent = 'prva'
+
+let li2 = document.createElement('li');
+li2.textContent = 'druga'
+
+let li3 = document.createElement('li');
+li3.textContent = 'treca'
+
+let li4 = document.createElement('li');
+li4.textContent = 'cetvrta'
+
+let li5 = document.createElement('li');
+li5.textContent = 'peta'
+
+ul.appendChild(li1);
+ul.appendChild(li2);
+ul.appendChild(li3);
+ul.appendChild(li4);
+ul.appendChild(li5);
+div3.appendChild(ul);
+document.body.appendChild(div3);
+
+
+
 
 
 
