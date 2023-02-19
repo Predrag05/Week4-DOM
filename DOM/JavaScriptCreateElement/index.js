@@ -91,7 +91,30 @@ niz2.forEach((el) => {
     let li = document.createElement('li')
     li.textContent = `Ovo je tekst pod rednim brojem ${counter} iz niza a broj u samom nizu je \'${el}\'`
     li.className = 'olLista2'
-
+    let dugme = document.createElement('button');
+    dugme.textContent = `Dodaj ${el}`
+    let broj = el
+    dugme.addEventListener('click', () => {
+        niz2.push(broj)
+        let li = document.createElement('li')
+        li.textContent = `Ovo je tekst pod rednim brojem ${counter} iz niza a broj u samom nizu je \'${el}\'`
+        li.className = 'olLista2'
+        let dugme = document.createElement('button');
+        dugme.textContent = `Dodaj ${el}`
+        dugme.addEventListener('click', () => {
+            niz2.push(broj)
+            let li = document.createElement('li')
+            li.textContent = `Ovo je tekst pod rednim brojem ${counter} iz niza a broj u samom nizu je \'${el}\'`
+            li.className = 'olLista2'
+            let dugme = document.createElement('button');
+            dugme.textContent = `Dodaj ${el}`
+            div5.appendChild(dugme)
+            ol3.appendChild(li)
+        })
+        div5.appendChild(dugme)
+        ol3.appendChild(li)
+    })
+    div5.appendChild(dugme)
     ol3.appendChild(li)
     counter++
 })
