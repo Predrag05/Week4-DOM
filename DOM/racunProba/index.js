@@ -18,11 +18,17 @@ let brojUnosIzlaza = drugiInput.value
 
 const podignutoPara = document.getElementById('podignutoPara')
 
+function daLiJeValidanUnos(unos){
+    isNaN(unos.value.trim())
+    unos.value >= 10
+}
+
 
 dugmeDepozit.addEventListener('click', () => {
 
     greska.innerText = ''
     podignutoPara.innerText = ''
+    
 
     if(isNaN(prviInput.value.trim())){
         greska.innerText = 'Vas unos mora da bude broj'
