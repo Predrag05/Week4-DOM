@@ -177,6 +177,7 @@ dugmePodizi.addEventListener('click', () =>{
     podGold(drugiInput)
     podPlatinum(drugiInput)
     
+    
 })
 
 console.log('Браво Предраже')
