@@ -2,13 +2,13 @@ let zbirDepozita = 0
 
 const div1 = document.getElementById('jedan')
 const div2 = document.getElementById('dva')
-const status1 = document.getElementById('status1')
-const greska = document.getElementById('greska')
+let status1 = document.getElementById('status1')
+let greska = document.getElementById('greska')
 
 const dugmeDepozit = document.getElementById('dugmeDodajStanje')
 const dugmePodizi = document.getElementById('dugmeOduzmiOdStanja')
 
-const trenutnoStanje = document.getElementById('trenutnoStanje')
+let trenutnoStanje = document.getElementById('trenutnoStanje')
 
 const prviInput = document.getElementById('ulaz')
 const drugiInput = document.getElementById('izlaz')
@@ -18,42 +18,152 @@ const drugiInput = document.getElementById('izlaz')
 
 const podignutoPara = document.getElementById('podignutoPara')
 
+let donjeOgranicenje = -1001
+let hiljadu = 1000
+let milion = 1000000
+let min = 10
 
+function ispisiKartice(){
+    if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
+        status1.innerText = 'Red'
+    } 
+    if(zbirDepozita > 0 && zbirDepozita < hiljadu){
+        status1.innerText = 'Active'
+    }
+    if(zbirDepozita > hiljadu && milion < 0){
+        status1.innerText = 'Gold'
+    }   
+    if(zbirDepozita > milion){
+        status1.innerText = 'Platinum'
+    } 
+     
+}
 
 function daLiJeUnosPreko10(unos) {
-    unos >= 10
+    +unos.value >= min
 }
-function daLiJeDozvoljenoPodizati(depozit) {
-    if(depozit <= -1001){
+
+function minus(depozit) {
+    if(zbirDepozita >= ++donjeOgranicenje && zbirDepozita < 0){
+        status1.innerText = 'Red'
+        zbirDepozita += +depozit.value
+        trenutnoStanje.innerText = zbirDepozita
+        ispisiKartice()
+    }
+}
+function activ(depozit) {
+    if(zbirDepozita >= 0 && zbirDepozita <= --hiljadu && +depozit.value >= min){
+    status1.innerText = 'Active'
+    zbirDepozita += +depozit.value
+    trenutnoStanje.innerText = zbirDepozita
+    ispisiKartice()
+
+
+}
+}
+function gold(depozit) {
+    if(zbirDepozita > hiljadu && zbirDepozita <= --milion && +depozit.value >= min){
+    status1.innerText = 'Gold'
+    zbirDepozita += +depozit.value
+    trenutnoStanje.innerText = zbirDepozita
+    ispisiKartice()
+    }
+}
+function platinum(depozit) {
+    if(zbirDepozita >= milion && +depozit.value >= min){
+    status1.innerText = 'Platinum'
+    zbirDepozita += +depozit.value
+    trenutnoStanje.innerText = zbirDepozita
+    ispisiKartice()
+    }
+}
+
+//////////////////////////////////////////////////////////
+
+
+function podPlatinum(izlaz) {
+    if(status1.innerText === 'Platinum' && +izlaz.value > min){
+        zbirDepozita -= +izlaz.value / 100
+        zbirDepozita -= +izlaz.value
+        trenutnoStanje.innerText = zbirDepozita
+        ispisiKartice()
+    }
+}
+function podGold(izlaz) {
+    if(status1.innerText === 'Gold' && +izlaz.value < hiljadu && +izlaz.value > min){
+        
+            zbirDepozita -= +izlaz.value
+            trenutnoStanje.innerText = zbirDepozita
+            // if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
+            //     status1.innerText = 'Red'
+            // } 
+            // if(zbirDepozita > 0 && zbirDepozita < hiljadu){
+            //     status1.innerText = 'Active'
+            // }
+            // if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
+            //     status1.innerText = 'Red'
+            // }   
+            ispisiKartice()
+           
+             
+            
+        }
+    }
+
+function podActive(izlaz) {
+    if(status1.innerText === 'Active' && +izlaz.value < hiljadu && +izlaz.value > min){
+        
+            zbirDepozita -= +izlaz.value
+            trenutnoStanje.innerText = zbirDepozita
+            // if(zbirDepozita > 0){
+            //     status1.innerText = 'Active'
+            // }
+            // if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
+            //     status1.innerText = 'Red'
+            // }   
+            ispisiKartice()
+    }
+    
+}
+function neMozePod() {
+    if(zbirDepozita <= donjeOgranicenje){
+
         greska.innerText = 'Nije dozvoljeno podizati novac zbog velikog minusa'
-    }
-}
-function daLiJeDozvoljeniMinus(depozit) {
-    if(depozit >= -1000 && depozit < 0){
-        status1.innerText == 'Red'
-    }
-}
-function daLiJeStatusActiv(depozit) {
-    if(depozit >= 0 && depozit <= 999){
-    status1.innerText == 'Active'
-}
-}
-function daLiJeStatusGold() {
-    if(depozit >= 1000 && depozit <= 999999){
-    status1.innerText == 'Gold'
-    }
-}
-function daLiJeStatusPlatinum() {
-    if(depozit >= 1000000){
-    status1.innerText == 'Platinum'
+        
+
     }
 }
 
-
+function podMinus(izlaz) {
+    if((status1.innerText === 'Red' || status1.innerText === 'Status') && +izlaz.value < hiljadu && +izlaz.value > min && zbirDepozita > donjeOgranicenje){
+        
+            zbirDepozita -= +izlaz.value
+            trenutnoStanje.innerText = zbirDepozita
+            status1.innerText = 'Red'
+            ispisiKartice()
+            
+        }
+}
 
 dugmeDepozit.addEventListener('click', () =>{
-        
     
+    platinum(prviInput)
+    gold(prviInput)
+    activ(prviInput)
+    minus(prviInput)
+
+
+        
+})
+
+dugmePodizi.addEventListener('click', () =>{
+
+    neMozePod(drugiInput)
+    podMinus(drugiInput)
+    podActive(drugiInput)
+    podGold(drugiInput)
+    podPlatinum(drugiInput)
     
 })
+
 console.log('Браво Предраже')
