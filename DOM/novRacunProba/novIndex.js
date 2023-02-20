@@ -22,6 +22,7 @@ let donjeOgranicenje = -1001
 let hiljadu = 1000
 let milion = 1000000
 let min = 10
+let preostalo = hiljadu + +drugiInput.value 
 
 function ispisiKartice(){
     if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
@@ -36,6 +37,9 @@ function ispisiKartice(){
     if(zbirDepozita > milion){
         status1.innerText = 'Platinum'
     } 
+    if(zbirDepozita < donjeOgranicenje){
+        status1.innerText = 'prekoracenje'
+    }
      
 }
 
@@ -135,7 +139,7 @@ function neMozePod() {
 }
 
 function podMinus(izlaz) {
-    if((status1.innerText === 'Red' || status1.innerText === 'Status') && +izlaz.value < hiljadu && +izlaz.value > min && zbirDepozita > donjeOgranicenje){
+    if((status1.innerText === 'Red' || status1.innerText === 'Status') && +izlaz.value < hiljadu && +izlaz.value > min && zbirDepozita > donjeOgranicenje && preostalo > izlaz.value){
         
             zbirDepozita -= +izlaz.value
             trenutnoStanje.innerText = zbirDepozita
@@ -145,8 +149,17 @@ function podMinus(izlaz) {
         }
 }
 
+function dodajUvek(uvek) {
+    if(zbirDepozita < donjeOgranicenje && status1.innerText === 'prekoracenje')
+    zbirDepozita += +uvek.value
+}
+
+
+
+
 dugmeDepozit.addEventListener('click', () =>{
-    
+
+    dodajUvek(prviInput)
     platinum(prviInput)
     gold(prviInput)
     activ(prviInput)
@@ -157,7 +170,7 @@ dugmeDepozit.addEventListener('click', () =>{
 })
 
 dugmePodizi.addEventListener('click', () =>{
-
+    
     neMozePod(drugiInput)
     podMinus(drugiInput)
     podActive(drugiInput)
