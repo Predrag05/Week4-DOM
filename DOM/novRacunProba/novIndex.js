@@ -98,19 +98,14 @@ function podGold(izlaz) {
         
             zbirDepozita -= +izlaz.value
             trenutnoStanje.innerText = zbirDepozita
-            // if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
-            //     status1.innerText = 'Red'
-            // } 
-            // if(zbirDepozita > 0 && zbirDepozita < hiljadu){
-            //     status1.innerText = 'Active'
-            // }
-            // if(zbirDepozita > donjeOgranicenje && zbirDepozita < 0){
-            //     status1.innerText = 'Red'
-            // }   
+        
             ispisiKartice()
            
              
             
+        }
+        else{
+            greska.innerText = 'Ne moze se podici preko 1000'
         }
     }
 
@@ -126,6 +121,9 @@ function podActive(izlaz) {
             //     status1.innerText = 'Red'
             // }   
             ispisiKartice()
+    }
+    else{
+        greska.innerText = 'Ne moze se podici preko 1000'
     }
     
 }
@@ -146,6 +144,9 @@ function podMinus(izlaz) {
             status1.innerText = 'Red'
             ispisiKartice()
             
+        }
+        else{
+            greska.innerText = 'Ne moze se podici preko 1000'
         }
 }
 
