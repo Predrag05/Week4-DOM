@@ -4,9 +4,9 @@ const mouseover = document.getElementById('mouseover');
 const keypress = document.getElementById('keypress');
 const focus = document.getElementById('focus');
 const blur = document.getElementById('blur');
-const resize = document.getElementById('resize');
 const focusBox = document.getElementById('focusBox');
-
+const windowWidth = document.getElementById('windowWidth');
+const windowHeight = document.getElementById('windowHeight');
 let counter = 0;
 // let nizKlik = []; komplikovanija varijanta sa ubacivanjem u niz
 
@@ -47,11 +47,17 @@ focusBox.addEventListener('keypress', () => {
     p.innerHTML = focusBox.value;
     document.body.appendChild(p);
 })
+///////////////////////////////////////////
+blur.addEventListener('focus', () => {
+    blur.style.backgroundColor = 'gold';
 
+})
 blur.addEventListener('blur', () => {
-    
+    blur.style.backgroundColor = 'white';
+
 })
 
-resize.addEventListener('resize', () => {
-    
+window.addEventListener('resize', () => {
+    windowWidth.innerHTML = window.innerWidth;
+    windowHeight.innerHTML = window.innerHeight;
 })
