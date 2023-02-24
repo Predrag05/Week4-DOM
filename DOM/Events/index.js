@@ -5,7 +5,7 @@ const keypress = document.getElementById('keypress');
 const focus = document.getElementById('focus');
 const blur = document.getElementById('blur');
 const resize = document.getElementById('resize');
-
+const keypressTxtBox = document.getElementById('keypressTxtBox');
 let counter = 0;
 // let nizKlik = []; komplikovanija varijanta sa ubacivanjem u niz
 
@@ -25,16 +25,15 @@ select.addEventListener('change', () => {
     document.getElementById('demo').innerHTML = val
 })
 
-select.addEventListener('change', () => {
-    
-})
 
 mouseover.addEventListener('mouseover', () => {
-    
+    mouseover.innerHTML = 'Tako je Pedja'
 })
 
 keypress.addEventListener('keypress', () => {
-    
+    let p = document.createElement('p');
+    p.innerHTML = keypress.value;
+    document.body.appendChild(p);
 })
 
 focus.addEventListener('focus', () => {
