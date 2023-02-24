@@ -5,7 +5,6 @@ const keypress = document.getElementById('keypress');
 const focus = document.getElementById('focus');
 const blur = document.getElementById('blur');
 const resize = document.getElementById('resize');
-const keypressTxtBox = document.getElementById('keypressTxtBox');
 let counter = 0;
 // let nizKlik = []; komplikovanija varijanta sa ubacivanjem u niz
 
@@ -37,7 +36,7 @@ keypress.addEventListener('keypress', () => {
 })
 
 focus.addEventListener('focus', () => {
-    
+    focus.style.backgroundColor = 'yellow';
 })
 
 blur.addEventListener('blur', () => {
