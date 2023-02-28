@@ -41,6 +41,7 @@ const items = libs.map((lib) => {
     return item;
 });
 
+
 list.firstChild.before(...items);
 
 console.log(items)
