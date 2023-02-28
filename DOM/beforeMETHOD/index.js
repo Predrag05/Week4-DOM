@@ -46,3 +46,5 @@ list.firstChild.before(...items);
 
 console.log(items)
 
+p.textContent = `Here is practise to enter items in list React but outerHTML: ${items[0].outerHTML}`
+
