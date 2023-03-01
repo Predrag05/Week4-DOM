@@ -48,3 +48,6 @@ console.log(items)
 
 p.textContent = `Here is practise to enter items in list React but outerHTML: ${items[0].outerHTML}`
 
+
+const button = document.querySelector('button');
+button.firstChild.before('🧡 ')
