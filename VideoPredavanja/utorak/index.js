@@ -4,7 +4,6 @@ let niz = []
 const p2 = document.createElement('p');
 
 
-
 const div2 = document.createElement('div');
 const label = document.createElement('label');
 label.for = 'neki-novi-input'
@@ -52,3 +51,26 @@ t.addEventListener('keypress', (e) => {
 p2.innerText = 'password is \'valid\''
 document.body.appendChild(p2);
 put.before(p2)
+
+
+///////////////////////////////
+
+
+const button = document.createElement('button');
+button.innerText = 'Write Array Copy'
+document.body.appendChild(button)
+
+button.addEventListener('click', () => {
+
+    let stri = ''
+        niz.forEach((el) => {
+            const pi = document.createElement('p')
+            pi.innerText = el
+            document.body.appendChild(pi)
+            stri += el + ' '
+            
+        })
+    const par = document.createElement('p');
+        par.innerText = stri
+        document.body.appendChild(par)
+})
