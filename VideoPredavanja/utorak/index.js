@@ -1,6 +1,5 @@
 const div = document.getElementById('div');
 const t = document.getElementById('nekitext');
-let niz = []
 const p2 = document.createElement('p');
 
 
@@ -8,15 +7,21 @@ const div2 = document.createElement('div');
 const label = document.createElement('label');
 label.for = 'neki-novi-input'
 label.innerText = 'Pogodi input za ispis niza';
-div2.appendChild(label)
+
 
 const put = document.createElement('input');
 put.type = 'textbox';
 put.id = 'text-niz';
 put.placeholder = 'Input must be - valid'
-label.appendChild(put);
 
-document.body.appendChild(div2);
+
+const button = document.createElement('button');
+button.innerText = 'Write Array Copy'
+
+
+
+let niz = []
+
 
 
 put.addEventListener('keypress', (e) => {
@@ -47,18 +52,8 @@ t.addEventListener('keypress', (e) => {
     }
 })
 
-////////////////////// before METHOD just for try
-p2.innerText = 'password is \'valid\''
-document.body.appendChild(p2);
-put.before(p2)
 
 
-///////////////////////////////
-
-
-const button = document.createElement('button');
-button.innerText = 'Write Array Copy'
-document.body.appendChild(button)
 
 button.addEventListener('click', () => {
 
@@ -74,3 +69,28 @@ button.addEventListener('click', () => {
         par.innerText = stri
         document.body.appendChild(par)
 })
+
+
+
+
+document.body.appendChild(div2);
+div2.appendChild(label)
+label.appendChild(put);
+
+document.body.appendChild(button)
+
+
+
+
+
+
+
+////////////////////// before METHOD just for try
+p2.innerText = 'password is \'valid\''
+document.body.appendChild(p2);
+put.before(p2)
+
+
+///////////////////////////////
+
+
