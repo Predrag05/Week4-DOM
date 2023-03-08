@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Glasanje </title>
+  <style>
+    #vote-box {
+      width: 350px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+
+    #vote-box h3 {
+      margin-top: 0;
+    }
+
+    .vote-button {
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background: #1A75FF;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="vote-box">
+    <h3> Glasajte za svoju opciju: </h3>
+    <form>
+      <select id="vote-choice">
+        <option> Opcija 1 </option>
+        <option> Opcija 2 </option>
+        <option> Opcija 3 </option>
+        <option> Opcija 4 </option>
+        <option> Opcija 5 </option>
+        <option> Opcija 6 </option>
+        <option> Opcija 7 </option>
+        <option> Opcija 8 </option>
+        <option> Opcija 9 </option>
+        <option> Opcija 10 </option>
+      </select>
+      <input type="submit" class="vote-button" value="Glasaj" />
+    </form>
+    <div id="vote-results">
+      Rezultati:
+      <ul>
+        <li>Opcija 1: <span id="result1"></span></li>
+        <li>Opcija 2: <span id="result2"></span></li>
+        <li>Opcija 3: <span id="result3"></span></li>
+        <li>Opcija 4: <span id="result4"></span></li>
+        <li>Opcija 5: <span id="result5"></span></li>
+        <li>Opcija 6: <span id="result6"></span></li>
+        <li>Opcija 7: <span id="result7"></span></li>
+        <li>Opcija 8: <span id="result8"></span></li>
+        <li>Opcija 9: <span id="result9"></span></li>
+        <li>Opcija 10: <span id="result10"></span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const voteResults = {
+      Option1: 0,
+      Option2: 0,
+      Option3: 0,
+      Option4: 0,
+      Option5: 0,
+      Option6: 0,
+      Option7: 0,
+      Option8: 0,
+      Option9: 0,
+      Option10: 0
+    }
+
+    // Pronaći elemente
+    const voteChoice = document.getElementById('vote-choice');
+    const submitVoteBtn = document.querySelector('.vote-button');
+    // Pronaći elemente za rezultate
+    const resultsList = document.querySelector('#vote-results > ul');
+    const result1 = document.getElementById('result1');
+    const result2 = document.getElementById('result2');
+    const result3 = document.getElementById('result3');
+    const result4 = document.getElementById('result4');
+    const result5 = document.getElementById('result5');
+    const result6 = document.getElementById('result6');
+    const result7 = document.getElementById('result7');
+    const result8 = document.getElementById('result8');
+    const result9 = document.getElementById('result9');
+    const result10 = document.getElementById('result10');
+
+    // Pronaći IP adresu
+    let ipAddress = '';
+    fetch('https://api.ipify.org/?format=json')
+      .then(response => response.json())
+      .then(data => {
+        ipAddress = data.ip;
+      });
+
+    // Praviti zapis o glasanju sa IP adresom
+    const votes = {};
+
+    // Postavite event listener za glasanje
+    submitVoteBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Proverite da li je IP adresa već glasala
+      if (votes[ipAddress]) {
+        alert('Već ste glasali!');
+        return;
+      }
+
+      // Proverite da li je korisnik izabrao opciju
+      if (voteChoice.value === '') {
+        alert('Molim Vas, izaberite opciju!');
+        return;
+      }
+
+      // Dodajte glas u objekat
+      voteResults[voteChoice.value]++;
+
+      // Dodajte IP adresu u objekat
+      votes[ipAddress] = true;
+
+      // Postavite timer za 5 minuta
+      setTimeout(() => {
+        delete votes[ipAddress];
+      }, 300000);
+
+      // Prikažite poruku
+      alert('Hvala Vam na Vašem glasu!');
+
+      // Osvežite rezultate
+      result1.innerText = voteResults.Option1;
+      result2.innerText = voteResults.Option2;
+      result3.innerText = voteResults.Option3;
+      result4.innerText = voteResults.Option4;
+      result5.innerText = voteResults.Option5;
+      result6.innerText = voteResults.Option6;
+      result7.innerText = voteResults.Option7;
+      result8.innerText = voteResults.Option8;
+      result9.innerText = voteResults.Option9;
+      result10.innerText = voteResults.Option10;
+    });
+  </script>
+</body>
+
+</html>
