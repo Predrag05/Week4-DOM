@@ -1,0 +1,37 @@
+
+<script>
+    // Definicija 10 opcija
+    const options = [
+      'Opcija 1',
+      'Opcija 2',
+      'Opcija 3',
+      'Opcija 4',
+      'Opcija 5',
+      'Opcija 6',
+      'Opcija 7',
+      'Opcija 8',
+      'Opcija 9',
+      'Opcija 10',
+    ];
+    
+    // Promenljiva za broj glasova za svaku opciju
+    let votes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    
+    // Funkcija za glasanje
+    function vote(optionNumber) {
+      // Provera da li je glasač već glasao
+      if (sessionStorage.getItem('voted') === 'true') {
+        alert('Već ste glasali!');
+      } else {
+        // Povećanje broja glasova za odabranu opciju
+        votes[optionNumber]++;
+        // Postavljanje zastavice da je glasač već glasao
+        sessionStorage.setItem('voted', 'true');
+        // Ispisivanje broja glasova
+        document.write(`<h2>Rezultati glasanja:</h2>`);
+        options.forEach((option, index) => {
+          document.write(`<p>${option}: ${votes[index]}</p>`);
+        });
+      }
+    }
+  </script>

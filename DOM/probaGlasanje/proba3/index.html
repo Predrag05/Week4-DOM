@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Glasanje</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    #glasanje {
+      margin: 20px auto;
+      width: 500px;
+      padding: 10px;
+    }
+
+    #glasanje h3 {
+      margin-top: 0;
+    }
+
+    #glasanje p {
+      margin-bottom: 10px;
+    }
+
+    .izbor {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+    }
+
+    .glasanje-btn {
+      background-color: #37c;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="glasanje">
+    <h3>Glasajte za svoju omiljenu opciju</h3>
+
+    <p>Izaberite jednu od opcija ispod i glasajte jednom</p>
+
+    <form>
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija1" value="1">
+        <label for="opcija1">Opcija 1</label><br>
+        <span>Broj glasova: <span id="broj-glasova-1">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija2" value="2">
+        <label for="opcija2">Opcija 2</label><br>
+        <span>Broj glasova: <span id="broj-glasova-2">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija3" value="3">
+        <label for="opcija3">Opcija 3</label><br>
+        <span>Broj glasova: <span id="broj-glasova-3">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija4" value="4">
+        <label for="opcija4">Opcija 4</label><br>
+        <span>Broj glasova: <span id="broj-glasova-4">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija5" value="5">
+        <label for="opcija5">Opcija 5</label><br>
+        <span>Broj glasova: <span id="broj-glasova-5">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija6" value="6">
+        <label for="opcija6">Opcija 6</label><br>
+        <span>Broj glasova: <span id="broj-glasova-6">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija7" value="7">
+        <label for="opcija7">Opcija 7</label><br>
+        <span>Broj glasova: <span id="broj-glasova-7">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija8" value="8">
+        <label for="opcija8">Opcija 8</label><br>
+        <span>Broj glasova: <span id="broj-glasova-8">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija9" value="9">
+        <label for="opcija9">Opcija 9</label><br>
+        <span>Broj glasova: <span id="broj-glasova-9">0</span></span>
+      </div>
+
+      <div class="izbor">
+        <input type="radio" name="opcija" id="opcija10" value="10">
+        <label for="opcija10">Opcija 10</label><br>
+        <span>Broj glasova: <span id="broj-glasova-10">0</span></span>
+      </div>
+
+      <input type="submit" value="Glasaj" class="glasanje-btn">
+    </form>
+  </div>
+
+  <script>
+    const glasanjeForm = document.querySelector('form');
+    const izbori = document.querySelectorAll('input[type="radio"]');
+
+    let glasovi = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    glasanjeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let izabrano = false;
+
+      izbori.forEach((izbor, index) => {
+        if (izbor.checked) {
+          glasovi[index]++;
+          izabrano = true;
+        }
+      });
+
+      if (!izabrano) {
+        alert('Molimo izaberite opciju!');
+        return;
+      }
+
+      glasovi.forEach((glasovi, index) => {
+        let brojGlasovaElem = document.getElementById(`broj-glasova-${index + 1}`);
+        brojGlasovaElem.innerText = glasovi;
+      });
+
+      alert('Uspešno ste glasali!');
+      glasanjeForm.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Glasanje</title>
+</head>
+<body>
+ 
+<h1>Glasajte za jednu od 10 opcija</h1>
+
+<form action="glasanje.php" method="post">
+
+<input type="radio" name="glas" value="opcija1"> Opcija 1<br>
+<input type="radio" name="glas" value="opcija2"> Opcija 2<br>
+<input type="radio" name="glas" value="opcija3"> Opcija 3<br>
+<input type="radio" name="glas" value="opcija4"> Opcija 4<br>
+<input type="radio" name="glas" value="opcija5"> Opcija 5<br>
+<input type="radio" name="glas" value="opcija6"> Opcija 6<br>
+<input type="radio" name="glas" value="opcija7"> Opcija 7<br>
+<input type="radio" name="glas" value="opcija8"> Opcija 8<br>
+<input type="radio" name="glas" value="opcija9"> Opcija 9<br>
+<input type="radio" name="glas" value="opcija10"> Opcija 10<br>
+
+<input type="submit" name="submit" value="Glasajte">
+
+</form>
+
+<script>
+// kod za provjeru da li je korisnik već glasao
+var glasan = false;
+
+// provjeravamo cookie ako postoji
+function provjeriCookie() {
+	// ako postoji cookie, postavljamo glasan na true
+	if (document.cookie.indexOf("glasan=true") != -1) {
+		glasan = true;
+	}
+}
+
+// provjerava da li je glasan
+function provjeriGlasan() {
+	if (glasan) {
+		alert("Već ste glasali!");
+		return false;
+	}
+	
+	// postavljamo cookie da bi zapamtili da je korisnik glasao
+	var date = new Date();
+	date.setTime(date.getTime() + (7*24*60*60*1000));
+	var expires = "expires="+ date.toUTCString();
+	document.cookie = "glasan=true; "+expires;
+	
+	return true;
+}
+
+// pozivamo provjeru cookie-a prilikom učitavanja stranice
+provjeriCookie();
+
+// na submit provjeravamo da li je glasan
+document.forms[0].onsubmit = provjeriGlasan;
+
+</script>
+ 
+</body>
+</html>
