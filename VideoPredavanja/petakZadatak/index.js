@@ -15,63 +15,65 @@ const itemList = document.querySelector('#item-list')
 // Funkcija koja ce da doda jedan element u fakturu
 const addElementToDOM = (id) => {
     const divContainer = document.createElement('div')
-    divContainer.className = 'item-container'
+        divContainer.className = 'item-container'
 
-        const divInfo = document.createElement('div')
-        divInfo.className = 'item-info'
+            const divInfo = document.createElement('div')
+            divInfo.className = 'item-info'
 
-            divLabels = document.createElement('div')
+                divLabels = document.createElement('div')
 
-                const labelName = document.createElement('label')
-                labelName.className = 'company-name'
-                labelName.textContent = inputName.value
+                    const labelName = document.createElement('label')
+                    labelName.className = 'company-name'
+                    labelName.textContent = inputName.value
 
-                const labelPib = document.createElement('label')
-                labelPib.className = 'company-pib'
-                labelPib.textContent = inputPib.value
+                    const labelPib = document.createElement('label')
+                    labelPib.className = 'company-pib'
+                    labelPib.textContent = inputPib.value
 
-                const labelTime = document.createElement('label')
-                labelTime.className = 'time-created'
-                labelTime.textContent = inputDate.value + ' '
+                    const labelTime = document.createElement('label')
+                    labelTime.className = 'time-created'
+                    labelTime.textContent = inputDate.value + ' '
 
-                const labelPrice = document.createElement('label')
-                labelPrice.className = 'price-value'
-                labelPrice.textContent = inputValue.value + 'RSD'
+                    const labelPrice = document.createElement('label')
+                    labelPrice.className = 'price-value'
+                    labelPrice.textContent = inputValue.value + 'RSD'
 
-            divLabels.appendChild(labelName,labelPib,labelTime,labelPrice)
+                divLabels.appendChild(labelName,labelPib,labelTime,labelPrice)
 
-        divInfo.appendChild(divLabels)
+            divInfo.appendChild(divLabels)
 
-            const divTimestamp = document.createElement('div')
-                const labelTimeStamp = document.createElement('label')
-                labelTimeStamp.className = 'insert-timestamp'
-                labelTimeStamp.innerHTML = `<span>[$inputDate.value]</span><span>@${(new Date()).getHours()}:${(new Date()).getMinutes()}</span>`
-            divTimestamp.appendChild(labelTimeStamp)
+                const divTimestamp = document.createElement('div')
+                    const labelTimeStamp = document.createElement('label')
+                    labelTimeStamp.className = 'insert-timestamp'
+                    labelTimeStamp.innerHTML = `<span>[$inputDate.value]</span><span>@${(new Date()).getHours()}:${(new Date()).getMinutes()}</span>`
+                divTimestamp.appendChild(labelTimeStamp)
 
-        divInfo.appendChild(divTimestamp)
+            divInfo.appendChild(divTimestamp)
 
-    divContainer.appendChild(divInfo)
+        divContainer.appendChild(divInfo)
 
-        const divActions = document.createElement('div')
-        divActions.className = 'item-actions'
+            const divActions = document.createElement('div')
+            divActions.className = 'item-actions'
 
-        const btnRemove = document.createElement('button')
-        btnRemove.className = 'item-trashCan'
-        btnRemove.textContent = 'DELETE'
-        divActions.appendChild(btnRemove)
+                const btnRemove = document.createElement('button')
+                btnRemove.className = 'item-trashCan'
+                btnRemove.textContent = 'DELETE'
+            divActions.appendChild(btnRemove)
 
-        btnRemove.addEventListener('click', (e) => {
-            e.target.parentElement.parentElement.remove()
-            fakture.splice(fakture.findIndex(el => el.id === id), 1)
-            console.log(fakture)
+                btnRemove.addEventListener('click', (e) => {
+                    e.target.parentElement.parentElement.remove()
+                    fakture.splice(fakture.findIndex(el => el.id === id), 1)
+                    console.log(fakture)
 
-        })
-    divContainer.appendChild(divActions)
+            })
+        divContainer.appendChild(divActions)
+
     itemList.appendChild(divContainer)
-    inputName.value = ''
-    inputDate.value = ''
-    inputPib.value = ''
-    inputValue.value = ''
+
+        inputName.value = ''
+        inputDate.value = ''
+        inputPib.value = ''
+        inputValue.value = ''
 
 
 
@@ -100,6 +102,7 @@ btnInsert.addEventListener('click', () => {
 
         return
     }
+
     fakture.push({
         name: inputName.value,
         pib: inputPib.value,
